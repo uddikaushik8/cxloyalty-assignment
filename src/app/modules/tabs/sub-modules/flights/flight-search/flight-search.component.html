@@ -1,0 +1,152 @@
+<div class="flight-container">
+  <div class="flight-search">
+    <button class="sort-button" (click)="openSortDialog()">Sort By</button>
+    <button class="filter-button" (click)="openFilterDialog()">Filters</button>
+  </div>
+  <div *ngIf="filteredFlights && filteredFlights.length; else noFlights">
+    <div *ngFor="let flight of filteredFlights" class="flight-card">
+      <div class="airline-info">
+        <div class="airline-header">
+          <img
+            [src]="flight.logo"
+            alt="{{ flight.airline }} logo"
+            class="airline-logo"
+          />
+          <span class="airline-name">{{ flight.airline }}</span>
+        </div>
+        <div class="time-info">
+          <div class="time-block">
+            <i class="fas fa-plane-departure"></i>
+            <span class="time">{{ flight.departureTime }}</span>
+            <span class="location">{{ flight.departure }}</span>
+          </div>
+          <div class="duration">
+            <i class="fas fa-clock"></i>
+            <span>{{ flight.duration }}</span>
+            <span>{{ flight.stops }}</span>
+          </div>
+          <div class="time-block">
+            <i class="fas fa-plane-arrival"></i>
+            <span class="time">{{ flight.arrivalTime }}</span>
+            <span class="location">{{ flight.arrival }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="price-info">
+        <div
+          class="price-option"
+          *ngFor="let price of flight.prices | keyvalue"
+        >
+          <ng-container *ngIf="price.value">
+            <div>${{ price.value }}</div>
+            <div>{{ capitalizeFirstLetter(price.key) }}</div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noFlights>
+    No Flights found within the search range
+  </ng-template>
+</div>
+
+<div class="overlay" *ngIf="isSortDialogOpen">
+  <div class="dialog">
+    <h2>Sort By</h2>
+    <div class="options">
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('priceLowHigh')"
+        />
+        Price (Lowest to Highest)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('priceHighLow')"
+        />
+        Price (Highest to Lowest)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('durationShortLong')"
+        />
+        Duration (Shortest to Longest)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('durationLongShort')"
+        />
+        Duration (Longest to Shortest)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('departureEarlyLate')"
+        />
+        Departure (Earliest to Latest)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('arrivalEarlyLate')"
+        />
+        Arrival (Earliest to Latest)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('airlineAToZ')"
+        />
+        Airline (A to Z)
+      </label>
+      <label>
+        <input
+          type="radio"
+          name="sort"
+          (click)="setSortOption('airlineZToA')"
+        />
+        Airline (Z to A)
+      </label>
+    </div>
+    <button class="done-button" (click)="closeSortDialog()">Done</button>
+  </div>
+</div>
+
+<!-- Filter Dialog -->
+<div class="overlay" *ngIf="isFilterDialogOpen">
+  <div class="dialog">
+    <h2>Filter By</h2>
+    <div class="filter-section">
+      <label>Price range</label>
+      <input type="range" [(ngModel)]="priceRange" min="0" max="1000" />
+      <span>{{ priceRange }}</span>
+    </div>
+    <div class="filter-section">
+      <label>Booking class</label>
+      <label>
+        <input type="checkbox" [(ngModel)]="economyClass" /> Economy
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="firstClass" /> First class
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="businessClass" /> Business class
+      </label>
+    </div>
+    <div class="buttons">
+      <button class="apply-button" (click)="applyFilter()">Apply</button>
+      <button class="reset-button" (click)="resetFilter()">Reset all</button>
+    </div>
+  </div>
+</div>

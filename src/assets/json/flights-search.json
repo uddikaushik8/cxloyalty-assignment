@@ -1,0 +1,162 @@
+[
+  {
+    "airline": "Ethiopian airlines",
+    "airlineCode": "ETH",
+    "departureTime": "02:30am",
+    "arrivalTime": "04:50pm",
+    "duration": "14h 20m",
+    "stops": "1 Stop (ADD)",
+    "departure": "Delhi",
+    "arrival": "New York",
+    "prices": {
+      "economy": 125,
+      "business": 212,
+      "first": 475
+    },
+    "seatsLeft": 5
+  },
+  {
+    "airline": "British airlines",
+    "airlineCode": "BA",
+    "departureTime": "03:30am",
+    "arrivalTime": "05:50pm",
+    "duration": "12h 20m",
+    "stops": "Direct",
+    "departure": "Delhi",
+    "arrival": "London",
+    "prices": {
+      "economy": 110,
+      "business": 272,
+      "first": 465
+    },
+    "seatsLeft": 8
+  },
+  {
+    "airline": "British airlines",
+    "airlineCode": "BA",
+    "departureTime": "02:30am",
+    "arrivalTime": "04:50pm",
+    "duration": "14h 20m",
+    "stops": "1 Stop (CET)",
+    "departure": "Delhi",
+    "arrival": "New York",
+    "prices": {
+      "economy": 125,
+      "business": 212,
+      "first": 475
+    },
+    "seatsLeft": 3
+  },
+  {
+    "airline": "Qatar Airways",
+    "airlineCode": "AA",
+    "departureTime": "04:20",
+    "arrivalTime": "06:50pm",
+    "duration": "14h 20m",
+    "stops": "1 Stop (DOH)",
+    "departure": "Mumbai",
+    "arrival": "Sydney",
+    "prices": {
+      "economy": 125,
+      "business": 212,
+      "first": 475
+    },
+    "seatsLeft": 7
+  },
+  {
+    "airline": "Indigo airlines",
+    "airlineCode": "IA",
+    "departureTime": "07:20pm",
+    "arrivalTime": "09:50pm",
+    "duration": "02h 50m",
+    "stops": "Direct",
+    "departure": "Delhi",
+    "arrival": "Bangalore",
+    "prices": {
+      "economy": 30,
+      "business": 60,
+      "first": 134
+    },
+    "seatsLeft": 18
+  },
+  {
+    "airline": "Indigo airlines",
+    "airlineCode": "IA",
+    "departureTime": "02:30am",
+    "arrivalTime": "04:50am",
+    "duration": "1h 20m",
+    "stops": "Direct",
+    "departure": "Pune",
+    "arrival": "Delhi",
+    "prices": {
+      "economy": 30,
+      "business": 60,
+      "first": 182
+    },
+    "seatsLeft": 13
+  },
+  {
+    "airline": "Indigo airlines",
+    "airlineCode": "IA",
+    "departureTime": "02:30am",
+    "arrivalTime": "04:50am",
+    "duration": "1h 20m",
+    "stops": "Direct",
+    "departure": "Pune",
+    "arrival": "Delhi",
+    "prices": {
+      "economy": 30,
+      "business": 60,
+      "first": 172
+    },
+    "seatsLeft": 13
+  },
+  {
+    "airline": "British airlines",
+    "airlineCode": "BA",
+    "departureTime": "03:30am",
+    "arrivalTime": "05:50pm",
+    "duration": "12h 20m",
+    "stops": "Direct",
+    "departure": "Delhi",
+    "arrival": "London",
+    "prices": {
+      "economy": 110,
+      "business": 272,
+      "first": 465
+    },
+    "seatsLeft": 8
+  },
+  {
+    "airline": "Ethiopian airlines",
+    "airlineCode": "ETH",
+    "departureTime": "02:30am",
+    "arrivalTime": "04:50pm",
+    "duration": "14h 20m",
+    "stops": "1 Stop (ADD)",
+    "departure": "Delhi",
+    "arrival": "New York",
+    "prices": {
+      "economy": 125,
+      "business": 212,
+      "first": 475
+    },
+    "seatsLeft": 5
+  },
+  {
+    "airline": "Qatar Airways",
+    "airlineCode": "AA",
+    "departureTime": "04:20",
+    "arrivalTime": "06:50pm",
+    "duration": "14h 20m",
+    "stops": "1 Stop (DOH)",
+    "departure": "Mumbai",
+    "arrival": "Sydney",
+    "prices": {
+      "economy": 125,
+      "business": 212,
+      "first": 475
+    },
+    "seatsLeft": 7
+  }
+]

@@ -1,0 +1,14 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: #377dc3eb;
+}
+
+.logo img {
+  height: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+}

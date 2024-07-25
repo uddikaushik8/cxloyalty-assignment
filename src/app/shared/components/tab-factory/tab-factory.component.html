@@ -1,0 +1,58 @@
+<h2 class="header">{{ this.formConfig.title }}</h2>
+<form class="input-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let control of formConfig.controls">
+    <div class="form-group">
+      <label [for]="control.formControl">{{ control.label }}:</label>
+      <ng-container *ngIf="control.inputType !== 'dropdown'">
+        <input
+          [type]="control.inputType"
+          [id]="control.formControl"
+          [formControlName]="control.formControl"
+        />
+        <div
+          *ngIf="
+            searchForm.get(control.formControl)?.hasError('pastDate') &&
+            searchForm.get(control.formControl)?.touched
+          "
+        >
+          <small class="error"
+            >{{ control.label }} date cannot be in the past</small
+          >
+        </div>
+        <div
+          *ngIf="
+            searchForm.get(control.formControl)?.hasError('min') &&
+            searchForm.get(control.formControl)?.touched
+          "
+        >
+          <small class="error">Number must be greater than 0</small>
+        </div>
+        <div
+          *ngIf="
+            control.autoCompleteRequired &&
+            filteredOptions[control.formControl]?.length
+          "
+          class="autocomplete"
+        >
+          <div
+            *ngFor="let value of filteredOptions[control.formControl]"
+            (click)="selectCity(control.formControl, value)"
+          >
+            {{ value }}
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="control.inputType === 'dropdown'">
+        <select
+          [id]="control.formControl"
+          [formControlName]="control.formControl"
+        >
+          <ng-container *ngFor="let option of control.defaultValues">
+            <option [value]="option">{{ option }}</option>
+          </ng-container>
+        </select>
+      </ng-container>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!searchForm.valid">Search</button>
+</form>

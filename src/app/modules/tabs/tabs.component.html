@@ -1,0 +1,18 @@
+<div class="tabs">
+  <a
+    *ngFor="let tab of tabs"
+    (click)="selectTab(tab)"
+    [class.active]="tab.label === selectedTab"
+  >
+    <span
+      [ngClass]="{ icon_flight: selectedTab === TABS_NAME_CONST.FLIGHTS }"
+    ></span>
+    {{ tab.label }}
+  </a>
+</div>
+<div [ngSwitch]="tabsLink">
+  <app-flights *ngSwitchCase="TABS_ROUTE_CONST.FLIGHTS"></app-flights>
+  <app-hotels *ngSwitchCase="TABS_ROUTE_CONST.HOTELS"></app-hotels>
+  <app-activites *ngSwitchCase="TABS_ROUTE_CONST.ACTIVITY"></app-activites>
+  <app-cars *ngSwitchCase="TABS_ROUTE_CONST.CARS"></app-cars>
+</div>
